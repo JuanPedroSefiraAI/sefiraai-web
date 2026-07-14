@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sefira AI · Automatiza hoy. Escala mañana.</title>
+<meta name="description" content="Sefira AI diseña agentes de IA que resuelven incidencias de soporte técnico al instante y automatizan lo repetitivo, para PYMEs y equipos de IT en España y Latinoamérica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0F1830;
+    --navy-900:#1B2A4A;
+    --navy-800:#243758;
+    --gold-500:#C9A84C;
+    --gold-300:#E4CD8B;
+    --paper-50:#F6F4EC;
+    --paper-100:#EFEBDF;
+    --ink-900:#171B24;
+    --ink-600:#4B5261;
+    --ink-400:#8188968f;
+    --line:#DAD4C2;
+    --status-green:#4E9F6E;
+    --status-amber:#C9A84C;
+    --status-red:#C1543D;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink-900);
+    background:var(--paper-50);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:0.04em;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* NAV */
+  header.site-nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(15,24,48,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(201,168,76,0.18);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 32px;max-width:var(--maxw);margin:0 auto;
+  }
+  .logo{
+    color:var(--gold-500);
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.03em;
+    text-decoration:none;
+    display:flex;align-items:baseline;gap:8px;
+  }
+  .logo span.mark{color:var(--paper-50);font-weight:400;font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;opacity:0.55;}
+  nav.links{display:flex;gap:36px;align-items:center;}
+  nav.links a{
+    color:rgba(246,244,236,0.75);
+    text-decoration:none;
+    font-size:0.92rem;
+    transition:color 0.2s ease;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--gold-300);}
+  .btn-cta{
+    background:var(--gold-500);
+    color:var(--navy-950)!important;
+    padding:10px 20px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.88rem;
+    text-decoration:none!important;
+    transition:transform 0.15s ease, background 0.15s ease;
+    display:inline-block;
+  }
+  .btn-cta:hover{background:var(--gold-300);transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,0.2);color:var(--paper-50);border-radius:8px;padding:8px 10px;font-size:1rem;}
+
+  /* HERO */
+  .hero{
+    background:radial-gradient(120% 140% at 15% -10%, #182747 0%, var(--navy-950) 55%);
+    color:var(--paper-50);
+    padding:96px 0 88px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .eyebrow{
+    color:var(--gold-300);
+    font-size:0.78rem;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--status-green);
+    box-shadow:0 0 0 4px rgba(78,159,110,0.18);
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 4vw, 3.3rem);
+    line-height:1.08;
+    font-weight:600;
+    color:#FBF9F3;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--gold-500);
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:1.08rem;
+    line-height:1.65;
+    color:rgba(246,244,236,0.78);
+    max-width:46ch;
+  }
+  .hero-ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;}
+  .btn-ghost{
+    border:1px solid rgba(246,244,236,0.28);
+    color:var(--paper-50);
+    padding:10px 22px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:0.92rem;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--gold-300);background:rgba(201,168,76,0.08);}
+
+  /* SIGNATURE: ticket stream */
+  .ticket-stream{
+    position:relative;
+    background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.09);
+    border-radius:18px;
+    padding:22px;
+    min-height:360px;
+  }
+  .stream-head{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    color:rgba(246,244,236,0.5);
+    padding-bottom:14px;margin-bottom:14px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .stream-head .dot-live{color:var(--status-green);}
+  .ticket-card{
+    background:rgba(15,24,48,0.55);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:10px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    opacity:0;
+    transform:translateY(8px);
+    animation:cardIn 0.5s ease forwards;
+  }
+  .ticket-card:nth-child(2){animation-delay:0.15s;}
+  .ticket-card:nth-child(3){animation-delay:0.3s;}
+  .ticket-card:nth-child(4){animation-delay:0.45s;}
+  .ticket-card:nth-child(5){animation-delay:0.6s;}
+  @keyframes cardIn{to{opacity:1;transform:translateY(0);}}
+  .ticket-id{font-family:'JetBrains Mono',monospace;font-size:0.76rem;color:rgba(246,244,236,0.45);}
+  .ticket-desc{font-size:0.88rem;color:rgba(246,244,236,0.85);}
+  .ticket-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:118px;}
+  .status-pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    padding:3px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .status-resolved{background:rgba(78,159,110,0.16);color:#8FD6AA;}
+  .status-progress{background:rgba(201,168,76,0.16);color:var(--gold-300);}
+  .status-escalated{background:rgba(193,84,61,0.18);color:#E29282;}
+  .stream-footer{
+    margin-top:8px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);
+    display:flex;justify-content:space-between;
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:rgba(246,244,236,0.45);
+  }
+
+  /* SECTION generic */
+  section{padding:104px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head .eyebrow{color:var(--navy-800);}
+  .section-head .eyebrow::before{background:var(--gold-500);box-shadow:0 0 0 4px rgba(201,168,76,0.18);}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;color:var(--navy-950);}
+  .section-head p{color:var(--ink-600);margin-top:14px;font-size:1.02rem;line-height:1.6;}
+
+  /* SERVICIOS */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .service-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px 26px;
+  }
+  .service-card .num{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold-500);font-size:0.78rem;
+  }
+  .service-card h3{font-size:1.2rem;margin-top:14px;color:var(--navy-950);font-weight:600;}
+  .service-card p{color:var(--ink-600);font-size:0.93rem;line-height:1.6;margin-top:10px;}
+  .service-card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    background:var(--paper-100);
+    border:1px solid var(--line);
+    color:var(--ink-600);
+    padding:3px 9px;border-radius:6px;
+  }
+
+  /* CASOS */
+  .casos{background:var(--navy-950);color:var(--paper-50);}
+  .casos .section-head .eyebrow{color:var(--gold-300);}
+  .casos .section-head .eyebrow::before{background:var(--status-green);}
+  .casos .section-head h2{color:#FBF9F3;}
+  .casos .section-head p{color:rgba(246,244,236,0.65);}
+  .case-list{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
+  .case-row{
+    background:var(--navy-900);
+    padding:28px 30px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;
+  }
+  .case-status{font-family:'JetBrains Mono',monospace;font-size:0.7rem;}
+  .case-row h3{font-size:1.1rem;font-weight:600;color:#FBF9F3;}
+  .case-row p{color:rgba(246,244,236,0.65);font-size:0.9rem;margin-top:6px;line-height:1.55;}
+  .case-row .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;}
+  .case-row .tag{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.14);color:rgba(246,244,236,0.7);}
+  .case-arrow{font-family:'JetBrains Mono',monospace;color:var(--gold-500);font-size:1.3rem;}
+
+  /* SOBRE MI */
+  .about-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start;}
+  .monogram{
+    width:100%;aspect-ratio:1;
+    background:linear-gradient(155deg,var(--navy-900),var(--navy-950));
+    border-radius:20px;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+    .monogram img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:relative;
+    z-index:1;
+  }
+  .monogram span{
+    font-family:'Fraunces',serif;font-size:5rem;color:var(--gold-500);font-weight:600;
+  }
+  .monogram::after{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(115deg, rgba(201,168,76,0.05) 0 2px, transparent 2px 22px);
+  }
+  .about-bio p{color:var(--ink-600);font-size:1.02rem;line-height:1.7;margin-bottom:16px;}
+  .about-bio strong{color:var(--navy-950);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+  .chip{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    background:#fff;border:1px solid var(--line);color:var(--ink-600);
+    padding:5px 11px;border-radius:8px;
+  }
+
+  /* CONTACTO */
+  .contacto{background:var(--navy-950);color:var(--paper-50);text-align:center;}
+  .contacto .section-head{margin:0 auto 40px;text-align:center;}
+  .contacto .section-head .eyebrow{justify-content:center;color:var(--gold-300);}
+  .contacto .section-head .eyebrow::before{background:var(--status-green);}
+  .contacto .section-head h2{color:#FBF9F3;}
+  .contacto .section-head p{color:rgba(246,244,236,0.65);margin-left:auto;margin-right:auto;}
+  .contact-email{
+    font-family:'Fraunces',serif;font-size:clamp(1.4rem,3vw,2rem);
+    color:var(--gold-500);text-decoration:none;
+    display:inline-block;margin-bottom:28px;
+  }
+  .contact-email:hover{color:var(--gold-300);}
+  .social-row{display:flex;gap:22px;justify-content:center;font-size:0.92rem;}
+  .social-row a{text-decoration:none;color:rgba(246,244,236,0.7);border-bottom:1px solid transparent;transition:border-color 0.2s ease, color 0.2s ease;}
+  .social-row a:hover{color:var(--gold-300);border-color:var(--gold-300);}
+
+  footer{
+    background:var(--navy-950);
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding:26px 0;
+    text-align:center;
+    color:rgba(246,244,236,0.4);
+    font-size:0.8rem;
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  @media (max-width:920px){
+    .hero-inner{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .monogram{max-width:200px;}
+    .case-row{grid-template-columns:1fr;}
+    .case-arrow{display:none;}
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy-950);flex-direction:column;padding:20px 32px;gap:18px;border-bottom:1px solid rgba(201,168,76,0.18);}
+    nav.links.open{display:flex;}
+    .nav-toggle{display:inline-block;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">SEFIRA AI <span class="mark">AUTOMATIZA HOY · ESCALA MAÑANA</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="links" id="navLinks">
+      <a href="#servicios">Servicios</a>
+      <a href="#casos">Casos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto" class="btn-cta">Hablemos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow mono">SISTEMA EN OPERACIÓN</span>
+        <h1>El soporte técnico de tu empresa,<br>sin colas ni <em>burnout</em>.</h1>
+        <p class="lead">Diseño agentes de IA que resuelven incidencias de Nivel 1 al instante —resets de contraseña, accesos, conexión— y escalan solo lo que de verdad necesita a un técnico humano.</p>
+        <div class="hero-ctas">
+          <a href="#contacto" class="btn-cta">Hablar con Sefira AI</a>
+          <a href="#casos" class="btn-ghost">Ver casos reales</a>
+        </div>
+      </div>
+
+      <div class="ticket-stream" aria-hidden="true">
+        <div class="stream-head">
+          <span><span class="dot-live">●</span> COLA DE SOPORTE — EN VIVO</span>
+          <span>agente-triaje-l1</span>
+        </div>
+
+        <div class="ticket-card">
+          <div>
+            <div class="ticket-id">#1042</div>
+            <div class="ticket-desc">Reseteo de contraseña — M. Ortega</div>
+          </div>
+          <div class="ticket-meta">
+            <span class="status-pill status-resolved">RESUELTO POR IA</span>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div>
+            <div class="ticket-id">#1043</div>
+            <div class="ticket-desc">VPN no conecta — certificado caducado</div>
+          </div>
+          <div class="ticket-meta">
+            <span class="status-pill status-resolved">RESUELTO POR IA</span>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div>
+            <div class="ticket-id">#1044</div>
+            <div class="ticket-desc">Caída general de red — oficina central</div>
+          </div>
+          <div class="ticket-meta">
+            <span class="status-pill status-escalated">ESCALADO · N2</span>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div>
+            <div class="ticket-id">#1045</div>
+            <div class="ticket-desc">Solicitud de acceso a carpeta compartida</div>
+          </div>
+          <div class="ticket-meta">
+            <span class="status-pill status-progress">EN CURSO</span>
+          </div>
+        </div>
+
+        <div class="stream-footer">
+          <span>4 tickets · última hora</span>
+          <span>75% resuelto sin intervención humana</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow mono">SERVICIOS</span>
+        <h2>Automatización que se nota en las métricas de tu equipo</h2>
+        <p>No vendo "chatbots". Construyo sistemas concretos que quitan carga real de tu departamento de IT, con la documentación de tu propia empresa como única fuente de verdad.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="num mono">01</span>
+          <h3>Agente de Triaje L1</h3>
+          <p>Resuelve reseteos de contraseña, accesos y dudas frecuentes usando RAG sobre tu manual de procedimientos real. Si no está documentado, no lo inventa: escala.</p>
+          <div class="tags">
+            <span class="tag">Claude API</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Node.js</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="num mono">02</span>
+          <h3>Automatización de flujos operativos</h3>
+          <p>Conecto tickets, calendarios, correo y mensajería (Gmail, Telegram, WhatsApp) con workflows que hacen el trabajo repetitivo sin que nadie lo toque.</p>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">Supabase</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="num mono">03</span>
+          <h3>Panel de prioridad y seguimiento</h3>
+          <p>Un dashboard que clasifica cada incidencia por urgencia en tiempo real, para que tu equipo vea de un vistazo qué de verdad requiere atención hoy.</p>
+          <div class="tags">
+            <span class="tag">Dashboards</span>
+            <span class="tag">Vercel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="casos" class="casos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow mono">CASOS REALES</span>
+        <h2>Sistemas ya construidos, no maquetas</h2>
+        <p>Cada caso está desplegado, probado, o en construcción pública — no son mockups de venta.</p>
+      </div>
+
+      <div class="case-list">
+        <div class="case-row">
+          <span class="case-status status-pill status-progress mono">EN CONSTRUCCIÓN PÚBLICA</span>
+          <div>
+            <h3>Agente de Triaje L1</h3>
+            <p>Soporte autónomo Nivel 1 para MSPs: RAG sobre documentación real, escalado inteligente y panel de urgencias. Construido en abierto, día a día.</p>
+            <div class="tags"><span class="tag">Node/Express</span><span class="tag">Claude API</span><span class="tag">RAG</span></div>
+          </div>
+          <span class="case-arrow">→</span>
+        </div>
+
+        <div class="case-row">
+          <span class="case-status status-pill status-resolved mono">EN PRODUCCIÓN</span>
+          <div>
+            <h3>Chatbot corporativo con RAG</h3>
+            <p>Asistente que responde sobre documentación interna de la empresa, con recuperación semántica sobre una base vectorial propia.</p>
+            <div class="tags"><span class="tag">Supabase</span><span class="tag">Pinecone</span><span class="tag">Gemini</span><span class="tag">Vercel</span></div>
+          </div>
+          <span class="case-arrow">→</span>
+        </div>
+
+        <div class="case-row">
+          <span class="case-status status-pill status-resolved mono">EN PRODUCCIÓN</span>
+          <div>
+            <h3>Automatización de gastos con OCR</h3>
+            <p>Extracción automática de tickets y facturas hacia hoja de cálculo, sin introducir datos a mano.</p>
+            <div class="tags"><span class="tag">OCR</span><span class="tag">Automatización</span></div>
+          </div>
+          <span class="case-arrow">→</span>
+        </div>
+
+        <div class="case-row">
+          <span class="case-status status-pill status-resolved mono">EN PRODUCCIÓN</span>
+          <div>
+            <h3>Agente de citas para clínica dietética</h3>
+            <p>Bot de Telegram que agenda citas, consulta disponibilidad y envía documentación, sin que nadie del equipo lo gestione manualmente.</p>
+            <div class="tags"><span class="tag">n8n</span><span class="tag">Telegram</span><span class="tag">Google Calendar</span></div>
+          </div>
+          <span class="case-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="wrap about-grid">
+      <div class="monogram">
+        <img src="images/perfil.png" alt="Juan Pedro Torres Miranda">
+      </div>
+      <div class="about-bio">
+        <span class="eyebrow mono">SOBRE MÍ</span>
+        <h2 style="margin-bottom:20px;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:600;color:var(--navy-950);">Juan Pedro Torres Miranda</h2>
+        <p><strong>He pasado cinco años apagando los mismos incendios de soporte técnico</strong> —resets de contraseña, accesos, conexión— en Entelgy, Indra y RTVE. Sé exactamente dónde se va el tiempo de un equipo de IT porque lo he vivido desde dentro.</p>
+        <p>Hoy diseño los sistemas que apagan esos incendios solos. Sefira AI nace de esa experiencia: no es teoría de automatización, es el mismo trabajo que hacía a mano, ahora construido para que no dependa de mí ni de tu equipo.</p>
+        <p>Complemento ese fondo técnico con formación activa en ciberseguridad —porque un sistema que automatiza soporte también tiene que ser un sistema seguro.</p>
+        <div class="chips">
+          <span class="chip">5+ años en soporte IT</span>
+          <span class="chip">Active Directory · M365</span>
+          <span class="chip">CFGS ASIX</span>
+          <span class="chip">Google Cybersecurity Cert.</span>
+          <span class="chip">HackTheBox — SOC Analyst Path</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow mono">HABLEMOS</span>
+        <h2>¿Tu equipo de IT necesita dejar de apagar los mismos fuegos?</h2>
+        <p>Cuéntame qué proceso te está quitando más horas. Te digo con honestidad si tiene sentido automatizarlo.</p>
+      </div>
+      <a href="mailto:jtorres@sefiraai.com" class="contact-email">jtorres@sefiraai.com</a>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/juanpedrotorresmiranda/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.workana.com/freelancer/b0ec6c5065eab9a8fbe15a997ab0a8db" target="_blank" rel="noopener">Workana</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">SEFIRA AI © <span id="year"></span> · Automatiza hoy. Escala mañana.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+</body>
+</html>
