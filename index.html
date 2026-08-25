@@ -198,6 +198,11 @@
     display:flex;justify-content:space-between;
     font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:rgba(246,244,236,0.45);
   }
+  .stream-highlight{
+    margin-top:6px;text-align:right;
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    color:var(--gold-300);
+  }
 
   /* SECTION generic */
   section{padding:104px 0;}
@@ -206,6 +211,25 @@
   .section-head .eyebrow::before{background:var(--gold-500);box-shadow:0 0 0 4px rgba(201,168,76,0.18);}
   .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;color:var(--navy-950);}
   .section-head p{color:var(--ink-600);margin-top:14px;font-size:1.02rem;line-height:1.6;}
+
+  /* RESULTADOS */
+  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .stat-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 24px;
+  }
+  .stat-card .stat-number{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:2.5rem;line-height:1;color:var(--gold-500);
+  }
+  .stat-card .stat-label{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    text-transform:uppercase;letter-spacing:0.04em;font-weight:600;
+    color:var(--navy-900);margin-top:12px;
+  }
+  .stat-card p{color:var(--ink-600);font-size:0.88rem;line-height:1.55;margin-top:12px;}
 
   /* SERVICIOS */
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -220,6 +244,12 @@
     color:var(--gold-500);font-size:0.78rem;
   }
   .service-card h3{font-size:1.2rem;margin-top:14px;color:var(--navy-950);font-weight:600;}
+  .metric-badge{
+    display:inline-block;margin-top:12px;
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.35);
+    color:var(--navy-900);padding:4px 10px;border-radius:6px;
+  }
   .service-card p{color:var(--ink-600);font-size:0.93rem;line-height:1.6;margin-top:10px;}
   .service-card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;}
   .tag{
@@ -246,6 +276,10 @@
   .case-status{font-family:'JetBrains Mono',monospace;font-size:0.7rem;}
   .case-row h3{font-size:1.1rem;font-weight:600;color:#FBF9F3;}
   .case-row p{color:rgba(246,244,236,0.65);font-size:0.9rem;margin-top:6px;line-height:1.55;}
+  .case-row .result-line{
+    font-family:'JetBrains Mono',monospace;font-size:0.76rem;
+    color:var(--gold-300);margin-top:10px;
+  }
   .case-row .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;}
   .case-row .tag{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.14);color:rgba(246,244,236,0.7);}
   .case-arrow{font-family:'JetBrains Mono',monospace;color:var(--gold-500);font-size:1.3rem;}
@@ -289,6 +323,10 @@
   .contacto .section-head .eyebrow::before{background:var(--status-green);}
   .contacto .section-head h2{color:#FBF9F3;}
   .contacto .section-head p{color:rgba(246,244,236,0.65);margin-left:auto;margin-right:auto;}
+  .contacto .promise-line{
+    font-family:'JetBrains Mono',monospace;font-size:0.8rem;
+    color:var(--gold-300);margin-top:14px;
+  }
   .contact-email{
     font-family:'Fraunces',serif;font-size:clamp(1.4rem,3vw,2rem);
     color:var(--gold-500);text-decoration:none;
@@ -311,6 +349,7 @@
 
   @media (max-width:920px){
     .hero-inner{grid-template-columns:1fr;}
+    .results-grid{grid-template-columns:repeat(2,1fr);}
     .services-grid{grid-template-columns:1fr;}
     .about-grid{grid-template-columns:1fr;}
     .monogram{max-width:200px;}
@@ -319,6 +358,9 @@
     nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy-950);flex-direction:column;padding:20px 32px;gap:18px;border-bottom:1px solid rgba(201,168,76,0.18);}
     nav.links.open{display:flex;}
     .nav-toggle{display:inline-block;}
+  }
+  @media (max-width:560px){
+    .results-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -329,6 +371,7 @@
     <a href="#top" class="logo">SEFIRA AI <span class="mark">AUTOMATIZA HOY · ESCALA MAÑANA</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="links" id="navLinks">
+      <a href="#resultados">Resultados</a>
       <a href="#servicios">Servicios</a>
       <a href="#casos">Casos</a>
       <a href="#sobre-mi">Sobre mí</a>
@@ -400,6 +443,40 @@
           <span>4 tickets · última hora</span>
           <span>75% resuelto sin intervención humana</span>
         </div>
+        <div class="stream-highlight">≈ 3h/día liberadas del equipo técnico</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultados">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow mono">RESULTADOS</span>
+        <h2>Lo que cambia para tu equipo de IT, en números</h2>
+        <p>Estimaciones sobre un equipo de soporte N1 típico de PYME, a partir del volumen de tickets repetitivos que absorbe el agente de triaje.</p>
+      </div>
+
+      <div class="results-grid">
+        <div class="stat-card">
+          <div class="stat-number">60h</div>
+          <div class="stat-label">Ahorradas al mes</div>
+          <p>Hasta 60 horas/mes menos en triaje manual de tickets repetitivos: resets, accesos, conexión.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">637€</div>
+          <div class="stat-label">Ahorro estimado / mes por técnico</div>
+          <p>7.644€/año equivalentes en tiempo de soporte N1 — sin sumar otra contratación al equipo.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">-90%</div>
+          <div class="stat-label">Tiempo de primera respuesta</div>
+          <p>De horas en cola de soporte a menos de 2 minutos en las incidencias que el agente resuelve solo.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Disponibilidad real</div>
+          <p>Atiende fuera de horario laboral, festivos y fines de semana — no solo de 9 a 18h.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -416,6 +493,7 @@
         <div class="service-card">
           <span class="num mono">01</span>
           <h3>Agente de Triaje L1</h3>
+          <span class="metric-badge">637€/mes de ahorro por técnico · 7.644€/año</span>
           <p>Resuelve reseteos de contraseña, accesos y dudas frecuentes usando RAG sobre tu manual de procedimientos real. Si no está documentado, no lo inventa: escala.</p>
           <div class="tags">
             <span class="tag">Claude API</span>
@@ -470,6 +548,7 @@
           <div>
             <h3>Chatbot corporativo con RAG</h3>
             <p>Asistente que responde sobre documentación interna de la empresa, con recuperación semántica sobre una base vectorial propia.</p>
+            <p class="result-line">Reduce el tiempo de búsqueda de información interna de minutos a segundos</p>
             <div class="tags"><span class="tag">Supabase</span><span class="tag">Pinecone</span><span class="tag">Gemini</span><span class="tag">Vercel</span></div>
           </div>
           <span class="case-arrow">→</span>
@@ -490,6 +569,7 @@
           <div>
             <h3>Agente de citas para clínica dietética</h3>
             <p>Bot de Telegram que agenda citas, consulta disponibilidad y envía documentación, sin que nadie del equipo lo gestione manualmente.</p>
+            <p class="result-line">Elimina la gestión manual de agenda: cero horas de coordinación humana</p>
             <div class="tags"><span class="tag">n8n</span><span class="tag">Telegram</span><span class="tag">Google Calendar</span></div>
           </div>
           <span class="case-arrow">→</span>
@@ -525,6 +605,7 @@
       <div class="section-head">
         <span class="eyebrow mono">HABLEMOS</span>
         <h2>¿Tu equipo de IT necesita dejar de apagar los mismos fuegos?</h2>
+        <p class="promise-line">La mayoría de clientes recuperan la inversión en el primer mes.</p>
         <p>Cuéntame qué proceso te está quitando más horas. Te digo con honestidad si tiene sentido automatizarlo.</p>
       </div>
       <a href="mailto:jtorres@sefiraai.com" class="contact-email">jtorres@sefiraai.com</a>
