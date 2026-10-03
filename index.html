@@ -3,8 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sefira AI · Automatiza hoy. Escala mañana.</title>
-<meta name="description" content="Sefira AI diseña agentes de IA que resuelven incidencias de soporte técnico al instante y automatizan lo repetitivo, para PYMEs y equipos de IT en España y Latinoamérica.">
+<title>Sefira AI — Automatización con IA para MSPs y departamentos IT</title>
+<meta name="description" content="TriageBot L1 de Sefira AI resuelve el soporte técnico repetitivo 24/7 por WhatsApp, Telegram o email y escala solo lo necesario. Para MSPs y equipos IT.">
+<link rel="canonical" href="https://sefiraai.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sefira AI">
+<meta property="og:url" content="https://sefiraai.com/">
+<meta property="og:title" content="Sefira AI — Automatización con IA para MSPs y departamentos IT">
+<meta property="og:description" content="Libera a tu equipo IT de las mismas 10 preguntas de siempre, sin contratar a nadie más. TriageBot L1: soporte técnico N1 automatizado 24/7.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sefiraai.com/#org",
+      "name": "Sefira AI",
+      "url": "https://sefiraai.com/",
+      "email": "jtorres@sefiraai.com",
+      "founder": {"@type": "Person", "name": "Juan Pedro Torres Miranda"},
+      "sameAs": ["https://www.linkedin.com/in/juanpedrotorresmiranda/", "https://www.youtube.com/@JuanPedroSefiraAI"]
+    },
+    {
+      "@type": "VideoObject",
+      "name": "TriageBot L1: libera a tu equipo IT de las mismas 10 preguntas de siempre",
+      "description": "Vídeo de presentación de TriageBot L1, el agente de IA de Sefira AI que resuelve el soporte técnico repetitivo de Nivel 1 sin contratar a nadie más.",
+      "thumbnailUrl": ["https://i.ytimg.com/vi/hQs0W-qHL2M/hqdefault.jpg"],
+      "embedUrl": "https://www.youtube-nocookie.com/embed/hQs0W-qHL2M",
+      "contentUrl": "https://youtu.be/hQs0W-qHL2M",
+      "uploadDate": "2026-10-03"
+    },
+    {
+      "@type": "Service",
+      "name": "TriageBot L1",
+      "description": "Resolución automática del soporte técnico repetitivo de Nivel 1, 24/7, integrada con WhatsApp, Telegram o email y con escalado a una persona cuando el caso lo requiere.",
+      "serviceType": "Automatización del soporte técnico con IA",
+      "provider": {"@id": "https://sefiraai.com/#org"},
+      "areaServed": ["ES", "Latinoamérica"],
+      "offers": [
+        {"@type": "Offer", "name": "Setup inicial", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 1200, "maxPrice": 1500, "priceCurrency": "EUR"}},
+        {"@type": "Offer", "name": "Mantenimiento mensual", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 270, "priceCurrency": "EUR", "unitCode": "MON"}}
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -261,6 +306,72 @@
     padding:3px 9px;border-radius:6px;
   }
 
+  /* CTA grande (Cal.com) */
+  .btn-cta-lg{padding:15px 30px;font-size:1rem;box-shadow:0 10px 30px -12px rgba(201,168,76,0.65);}
+  .cta-note{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-600);margin-top:12px;}
+
+  /* VSL */
+  .vsl{background:var(--navy-900);color:var(--paper-50);padding:88px 0;text-align:center;}
+  .vsl .section-head{margin:0 auto 36px;max-width:760px;}
+  .vsl .section-head .eyebrow{justify-content:center;color:var(--gold-300);}
+  .vsl .section-head h2{color:#FBF9F3;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.2;}
+  .vsl .section-head h2 em{font-style:normal;color:var(--gold-500);}
+  .video-frame{
+    position:relative;max-width:880px;margin:0 auto;aspect-ratio:16/9;
+    border-radius:18px;overflow:hidden;
+    border:1px solid rgba(201,168,76,0.35);
+    background:radial-gradient(120% 120% at 50% 0%, #22355c 0%, var(--navy-950) 70%);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  .video-frame iframe, .video-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-placeholder{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+    color:rgba(246,244,236,0.7);font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.06em;
+  }
+  .play-icon{
+    width:76px;height:76px;border-radius:50%;background:var(--gold-500);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 10px rgba(201,168,76,0.15);
+  }
+  .play-icon::after{content:"";margin-left:6px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent var(--navy-950);}
+  .vsl .hero-ctas{justify-content:center;}
+  .vsl .cta-note{color:rgba(246,244,236,0.55);}
+
+  /* PRODUCTO: TriageBot L1 */
+  .product-name{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold-500);letter-spacing:0.08em;text-transform:uppercase;margin-top:14px;}
+  .product-promise{font-family:'Fraunces',serif;font-size:1.25rem!important;color:var(--navy-900)!important;line-height:1.45!important;}
+  .product-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:32px;align-items:start;}
+  .benefit-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .benefit-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;}
+  .benefit-card .num{font-family:'JetBrains Mono',monospace;color:var(--gold-500);font-size:0.78rem;}
+  .benefit-card h3{font-size:1.05rem;font-weight:600;color:var(--navy-950);margin-top:10px;line-height:1.35;}
+  .benefit-card p{color:var(--ink-600);font-size:0.9rem;line-height:1.55;margin:8px 0 0;}
+  .pricing-card{
+    background:var(--navy-950);color:var(--paper-50);
+    border:1px solid rgba(201,168,76,0.35);border-radius:18px;padding:30px 28px;
+  }
+  .pricing-card h3{font-size:1.3rem;font-weight:600;color:#FBF9F3;}
+  .pricing-card .pricing-sub{color:rgba(246,244,236,0.6);font-size:0.88rem;margin:6px 0 20px;}
+  .pricing-table{width:100%;border-collapse:collapse;}
+  .pricing-table th, .pricing-table td{padding:16px 0;border-top:1px solid rgba(255,255,255,0.1);text-align:left;vertical-align:baseline;}
+  .pricing-table th{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(246,244,236,0.6);padding-right:12px;}
+  .pricing-table td{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;color:var(--gold-500);text-align:right;}
+  .pricing-table td small{display:block;font-family:'Inter',sans-serif;font-size:0.76rem;font-weight:400;color:rgba(246,244,236,0.6);margin-top:4px;}
+  .pricing-card .btn-cta{display:block;text-align:center;margin-top:24px;}
+  .pricing-card .cta-note{color:rgba(246,244,236,0.55);text-align:center;}
+
+  /* CASOS DE ÉXITO (placeholder) */
+  .exito{padding:0 0 104px;}
+  .exito-box{
+    display:flex;align-items:center;gap:22px;
+    background:var(--paper-100);border:1px dashed rgba(201,168,76,0.6);border-radius:var(--radius);
+    padding:26px 30px;
+  }
+  .exito-box .status-pill{flex-shrink:0;color:var(--navy-900);background:rgba(201,168,76,0.22);}
+  .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .exito-box h2{font-size:1.2rem;font-weight:600;color:var(--navy-950);}
+  .exito-box p{color:var(--ink-600);font-size:0.95rem;line-height:1.55;margin:6px 0 0;}
+
   /* CASOS */
   .casos{background:var(--navy-950);color:var(--paper-50);}
   .casos .section-head .eyebrow{color:var(--gold-300);}
@@ -351,6 +462,7 @@
     .hero-inner{grid-template-columns:1fr;}
     .results-grid{grid-template-columns:repeat(2,1fr);}
     .services-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:1fr;}
     .about-grid{grid-template-columns:1fr;}
     .monogram{max-width:200px;}
     .case-row{grid-template-columns:1fr;}
@@ -361,6 +473,8 @@
   }
   @media (max-width:560px){
     .results-grid{grid-template-columns:1fr;}
+    .benefit-list{grid-template-columns:1fr;}
+    .exito-box{flex-direction:column;align-items:flex-start;}
   }
 </style>
 </head>
@@ -372,6 +486,7 @@
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="links" id="navLinks">
       <a href="#resultados">Resultados</a>
+      <a href="#triagebot">TriageBot L1</a>
       <a href="#servicios">Servicios</a>
       <a href="#casos">Casos</a>
       <a href="#sobre-mi">Sobre mí</a>
@@ -448,6 +563,23 @@
     </div>
   </section>
 
+  <section id="video" class="vsl" aria-labelledby="vsl-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow mono">MÍRALO EN VÍDEO</span>
+        <h2 id="vsl-title">Libera a tu equipo IT de las mismas 10 preguntas de siempre, <em>sin contratar a nadie más.</em></h2>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/hQs0W-qHL2M" title="TriageBot L1: cómo liberar a tu equipo IT del soporte repetitivo" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="hero-ctas">
+        <!-- CAL.COM: sustituye TU-USUARIO/15min por tu enlace real (aparece en 3 botones de la página) -->
+        <a href="https://cal.com/juan-pedro-torres-miranda-ythz87/sefira-ai" class="btn-cta btn-cta-lg" target="_blank" rel="noopener">Agenda tu llamada gratuita de 15 minutos</a>
+      </div>
+      <p class="cta-note">Sin compromiso · Te digo con honestidad si encaja en tu equipo</p>
+    </div>
+  </section>
+
   <section id="resultados">
     <div class="wrap">
       <div class="section-head">
@@ -476,6 +608,79 @@
           <div class="stat-number">24/7</div>
           <div class="stat-label">Disponibilidad real</div>
           <p>Atiende fuera de horario laboral, festivos y fines de semana — no solo de 9 a 18h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="triagebot" aria-labelledby="triagebot-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow mono">PRODUCTO</span>
+        <h2 id="triagebot-title">TriageBot L1 — Resolución automática del soporte técnico repetitivo</h2>
+        <p class="product-promise">Libera a tu equipo IT de las mismas 10 preguntas de siempre, sin contratar a nadie más.</p>
+      </div>
+
+      <div class="product-grid">
+        <ul class="benefit-list">
+          <li class="benefit-card">
+            <span class="num">01</span>
+            <h3>Tu equipo deja de perder horas cada semana en lo mismo de siempre</h3>
+            <p>Resets de contraseña, accesos, VPN y dudas frecuentes se resuelven solos.</p>
+          </li>
+          <li class="benefit-card">
+            <span class="num">02</span>
+            <h3>Atención 24/7</h3>
+            <p>Sin depender de que alguien esté disponible fuera de horario.</p>
+          </li>
+          <li class="benefit-card">
+            <span class="num">03</span>
+            <h3>Solo escala a una persona cuando el caso realmente lo requiere</h3>
+            <p>Sin fricción: el técnico recibe el caso con todo el contexto.</p>
+          </li>
+          <li class="benefit-card">
+            <span class="num">04</span>
+            <h3>Se integra con el canal que ya usas</h3>
+            <p>WhatsApp, Telegram o email. Tus usuarios no tienen que aprender nada nuevo.</p>
+          </li>
+        </ul>
+
+        <div class="pricing-card">
+          <h3>Oferta</h3>
+          <p class="pricing-sub">Precio cerrado, sin sorpresas.</p>
+          <table class="pricing-table">
+            <caption class="visually-hidden">Precios de TriageBot L1</caption>
+            <tbody>
+              <tr>
+                <th scope="row">Setup inicial</th>
+                <td>1.200€ – 1.500€<small>Pago único</small></td>
+              </tr>
+              <tr>
+                <th scope="row">Mantenimiento</th>
+                <td>270€/mes<small>Todo incluido</small></td>
+              </tr>
+              <tr>
+                <th scope="row">Retorno estimado</th>
+                <td>60–75 días<small>Recuperación de la inversión</small></td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="https://cal.com/juan-pedro-torres-miranda-ythz87/sefira-ai" class="btn-cta btn-cta-lg" target="_blank" rel="noopener">Agenda tu llamada gratuita de 15 minutos</a>
+          <p class="cta-note">Revisamos tu caso y te digo si tiene sentido</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE ÉXITO: placeholder temporal. Cuando tengas resultados, sustituye el contenido de .exito-box
+       (o toda esta sección) por los casos reales. -->
+  <section id="casos-de-exito" class="exito" aria-labelledby="exito-title">
+    <div class="wrap">
+      <div class="exito-box">
+        <span class="status-pill status-progress mono">EN CURSO</span>
+        <div>
+          <h2 id="exito-title">Casos de éxito</h2>
+          <p>Primeros resultados en camino — estamos documentando el impacto real con nuestros primeros clientes.</p>
         </div>
       </div>
     </div>
@@ -581,7 +786,7 @@
   <section id="sobre-mi">
     <div class="wrap about-grid">
       <div class="monogram">
-        <img src="images/perfil.png" alt="Juan Pedro Torres Miranda">
+        <img src="images/perfil.png" alt="Retrato de Juan Pedro Torres Miranda, fundador de Sefira AI y especialista en automatización del soporte IT" width="933" height="877" loading="lazy">
       </div>
       <div class="about-bio">
         <span class="eyebrow mono">SOBRE MÍ</span>
@@ -605,12 +810,16 @@
       <div class="section-head">
         <span class="eyebrow mono">HABLEMOS</span>
         <h2>¿Tu equipo de IT necesita dejar de apagar los mismos fuegos?</h2>
-        <p class="promise-line">La mayoría de clientes recuperan la inversión en el primer mes.</p>
+        <p class="promise-line">Retorno estimado: recuperación de la inversión en 60–75 días.</p>
         <p>Cuéntame qué proceso te está quitando más horas. Te digo con honestidad si tiene sentido automatizarlo.</p>
       </div>
+      <p style="margin:0 0 32px;">
+        <a href="https://cal.com/juan-pedro-torres-miranda-ythz87/sefira-ai" class="btn-cta btn-cta-lg" target="_blank" rel="noopener">Agenda tu llamada gratuita de 15 minutos</a>
+      </p>
       <a href="mailto:jtorres@sefiraai.com" class="contact-email">jtorres@sefiraai.com</a>
       <div class="social-row">
         <a href="https://www.linkedin.com/in/juanpedrotorresmiranda/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@JuanPedroSefiraAI" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.workana.com/freelancer/b0ec6c5065eab9a8fbe15a997ab0a8db" target="_blank" rel="noopener">Workana</a>
       </div>
     </div>
